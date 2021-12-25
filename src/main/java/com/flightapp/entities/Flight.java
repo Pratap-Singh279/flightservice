@@ -1,6 +1,7 @@
 package com.flightapp.entities;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,27 +12,38 @@ import javax.persistence.Id;
 public class Flight {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
-private int flightId;
-private String airlineName;
+private Integer flightId;
+private String airLineName;
+private Date fltDate;
 private String fromLoc;
 private String toLoc;
 private double price;
-private LocalDateTime arrivalTime;
-private LocalDateTime departTime;
+private LocalDateTime arrTime;
+private LocalDateTime depTime;
 private int totalAvlBusClSeats;
 private int totalAvlNonBusClSeats;
 private String airlineStatus;
-public int getFlightId() {
+private String scheduledDays;
+private int numberOfRows;
+private String meal;
+private String instrumentUsed;
+public Integer getFlightId() {
 	return flightId;
 }
-public void setFlightId(int flightId) {
+public void setFlightId(Integer flightId) {
 	this.flightId = flightId;
 }
-public String getAirlineName() {
-	return airlineName;
+public String getAirLineName() {
+	return airLineName;
 }
-public void setAirlineName(String airlineName) {
-	this.airlineName = airlineName;
+public void setAirLineName(String airLineName) {
+	this.airLineName = airLineName;
+}
+public Date getFltDate() {
+	return fltDate;
+}
+public void setFltDate(Date fltDate) {
+	this.fltDate = fltDate;
 }
 public String getFromLoc() {
 	return fromLoc;
@@ -51,35 +63,29 @@ public double getPrice() {
 public void setPrice(double price) {
 	this.price = price;
 }
-public LocalDateTime getArrivalTime() {
-	return arrivalTime;
+public LocalDateTime getArrTime() {
+	return arrTime;
 }
-public void setArrivalTime(LocalDateTime arrivalTime) {
-	this.arrivalTime = arrivalTime;
+public void setArrTime(LocalDateTime arrTime) {
+	this.arrTime = arrTime;
 }
-public LocalDateTime getDepartTime() {
-	return departTime;
+public LocalDateTime getDepTime() {
+	return depTime;
 }
-public void setDepartTime(LocalDateTime departTime) {
-	this.departTime = departTime;
+public void setDepTime(LocalDateTime depTime) {
+	this.depTime = depTime;
 }
-public int getTotalSeats() {
-	return totalSeats;
+public int getTotalAvlBusClSeats() {
+	return totalAvlBusClSeats;
 }
-public void setTotalSeats(int totalSeats) {
-	this.totalSeats = totalSeats;
+public void setTotalAvlBusClSeats(int totalAvlBusClSeats) {
+	this.totalAvlBusClSeats = totalAvlBusClSeats;
 }
-public int getAvlBusClSeats() {
-	return avlBusClSeats;
+public int getTotalAvlNonBusClSeats() {
+	return totalAvlNonBusClSeats;
 }
-public void setAvlBusClSeats(int avlBusClSeats) {
-	this.avlBusClSeats = avlBusClSeats;
-}
-public int getAvlNonBusClSeats() {
-	return avlNonBusClSeats;
-}
-public void setAvlNonBusClSeats(int avlNonBusClSeats) {
-	this.avlNonBusClSeats = avlNonBusClSeats;
+public void setTotalAvlNonBusClSeats(int totalAvlNonBusClSeats) {
+	this.totalAvlNonBusClSeats = totalAvlNonBusClSeats;
 }
 public String getAirlineStatus() {
 	return airlineStatus;
@@ -87,12 +93,39 @@ public String getAirlineStatus() {
 public void setAirlineStatus(String airlineStatus) {
 	this.airlineStatus = airlineStatus;
 }
+public String getScheduledDays() {
+	return scheduledDays;
+}
+public void setScheduledDays(String scheduledDays) {
+	this.scheduledDays = scheduledDays;
+}
+public int getNumberOfRows() {
+	return numberOfRows;
+}
+public void setNumberOfRows(int numberOfRows) {
+	this.numberOfRows = numberOfRows;
+}
+public String getMeal() {
+	return meal;
+}
+public void setMeal(String meal) {
+	this.meal = meal;
+}
+public String getInstrumentUsed() {
+	return instrumentUsed;
+}
+public void setInstrumentUsed(String instrumentUsed) {
+	this.instrumentUsed = instrumentUsed;
+}
 @Override
 public String toString() {
-	return "Flight [flightId=" + flightId + ", airlineId=" + airlineId + ", airlineName=" + airlineName + ", fromLoc="
-			+ fromLoc + ", toLoc=" + toLoc + ", price=" + price + ", arrivalTime=" + arrivalTime + ", departTime="
-			+ departTime + ", totalSeats=" + totalSeats + ", avlBusClSeats=" + avlBusClSeats + ", avlNonBusClSeats="
-			+ avlNonBusClSeats + ", airlineStatus=" + airlineStatus + "]";
+	return "Flight [flightId=" + flightId + ", airLineName=" + airLineName + ", fltDate=" + fltDate + ", fromLoc="
+			+ fromLoc + ", toLoc=" + toLoc + ", price=" + price + ", arrTime=" + arrTime + ", depTime=" + depTime
+			+ ", totalAvlBusClSeats=" + totalAvlBusClSeats + ", totalAvlNonBusClSeats=" + totalAvlNonBusClSeats
+			+ ", airlineStatus=" + airlineStatus + ", scheduledDays=" + scheduledDays + ", numberOfRows=" + numberOfRows
+			+ ", meal=" + meal + ", instrumentUsed=" + instrumentUsed + "]";
 }
 
 }
+
+
