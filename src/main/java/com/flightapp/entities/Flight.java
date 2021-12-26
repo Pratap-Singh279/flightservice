@@ -1,5 +1,6 @@
 package com.flightapp.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Flight {
+public class Flight implements Serializable{
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Integer flightId;
