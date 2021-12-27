@@ -1,6 +1,12 @@
 package com.flightapp.models;
 
-public class PassengerDetails {
+import java.io.Serializable;
+
+public class PassengerDetails implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
 	private String gender;

@@ -12,6 +12,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Passenger implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -19,10 +23,11 @@ public class Passenger implements Serializable {
 	private String lastName;
 	private String gender;
 	private int age;
+	private int pnr;
+	
+	public Passenger() {
+	}
 
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
-	@JoinColumn(name = "pnr")
-	private Reservation reserv;
 
 	public Integer getId() {
 		return id;
@@ -64,23 +69,14 @@ public class Passenger implements Serializable {
 		this.age = age;
 	}
 
-	public Reservation getReserv() {
-		return reserv;
+	
+	public int getPnr() {
+		return pnr;
 	}
 
-	public void setReserv(Reservation reserv) {
-		this.reserv = reserv;
+	public void setPnr(int pnr) {
+		this.pnr = pnr;
 	}
 
-	public Passenger() {
-	}
-
-	public Passenger(String firstName, String lastName, String gender, int age) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.age = age;
-	}
 
 }

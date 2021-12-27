@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Flight;
-import com.flightapp.entities.Reservation;
 import com.flightapp.models.ReservationDetails;
 import com.flightapp.models.SearchFlight;
+import com.flightapp.models.TicketDetails;
 import com.flightapp.services.FlightService;
 
 @RestController
@@ -45,8 +45,12 @@ public class FlightController {
 	}
 	
 	@GetMapping("/ticket/{pnr}")
-	public Reservation getTicket(@PathVariable("pnr") int pnr) {
+	public TicketDetails getTicket(@PathVariable("pnr") int pnr) {
 		return fltService.getTicketDetails(pnr);
 	}
 	
+	@GetMapping("/booking/history/{emailId}")
+	public List<TicketDetails> getTicketsHistoryByEmail(@PathVariable("emailId") String emailId) {
+		return fltService.getTicketsHistoryByEmail(emailId);
+	}
 }
