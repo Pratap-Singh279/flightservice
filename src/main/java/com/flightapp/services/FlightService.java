@@ -32,16 +32,16 @@ public class FlightService {
 	@Autowired
 	PassengerRepository passengerRepos;
 
-	
-
 	public List<Flight> searchFlight(SearchFlight srch) {
-		return repos.findByFltDateAndFromLocAndToLoc(srch.getFltDate(), srch.getFromLoc(), srch.getToLoc());
+		return repos.findByFltDateAndFromLocAndToLoc(srch.getFltDate(), srch.getFromLoc(), srch.getToLoc(),"active");
 	}
 
 	public String registerFlight(Flight flight) {
+		
+		Flight save = repos.save(flight);
 		if (repos.save(flight) == null)
 			throw new RuntimeException("Flight registration failed");
-		return "Flight details added successfully";
+		return "Flight details added successfully with flight ID "+save.getFlightId();
 
 	}
 
@@ -152,5 +152,12 @@ public class FlightService {
 			}
 			return tktHistList;
 		}
+	}
+
+	public String updateFlightStaus(String airLineName, String airlineStatus) {
+		int updateFlightStatusForName = repos.updateFlightStatusForName(airlineStatus, airLineName);
+		if (updateFlightStatusForName == 0)
+			throw new RuntimeException("No flight available with such airline name!!!");
+		return "Flight status updated successfully!!!";
 	}
 }

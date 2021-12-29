@@ -39,6 +39,13 @@ public class FlightController {
 		return fltService.updateFlight(flight);
 	}
 	
+	
+	
+	@PostMapping("/airline/{airLineName}/status/{airlineStatus}")
+	public String updateFlightStatus(@PathVariable("airLineName") String airLineName,@PathVariable("airlineStatus") String airlineStatus) {
+		return fltService.updateFlightStaus(airLineName,airlineStatus);
+	}
+	
 	@PostMapping("/booking/{flightid}")
 	public String bookingFlight(@PathVariable("flightid") Integer flightId,@RequestBody ReservationDetails reservationDetails ) {
 		return fltService.bookingTicket(flightId,reservationDetails);
