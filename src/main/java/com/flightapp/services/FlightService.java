@@ -33,7 +33,7 @@ public class FlightService {
 	PassengerRepository passengerRepos;
 
 	public List<Flight> searchFlight(SearchFlight srch) {
-		return repos.findByFltDateAndFromLocAndToLoc(srch.getFltDate(), srch.getFromLoc(), srch.getToLoc(),"active");
+		return repos.findByFltDateAndFromLocAndToLocAndAirlineStatus(srch.getFltDate(), srch.getFromLoc(), srch.getToLoc(),"active");
 	}
 
 	public String registerFlight(Flight flight) {
@@ -71,7 +71,7 @@ public class FlightService {
 	}
 
 	public String bookingTicket(Integer flightId, ReservationDetails rsvDt) {
-
+System.out.println("rsvDt.getPassengersDetails()"+rsvDt.getPassengersDetails());
 		Reservation rsv = new Reservation();
 		rsv.setEmail(rsvDt.getEmail());
 		rsv.setFlightId(flightId);
